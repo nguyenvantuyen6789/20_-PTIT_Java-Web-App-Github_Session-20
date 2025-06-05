@@ -40,6 +40,24 @@ public class RoomRepositoryImpl implements RoomRepository {
     }
 
     @Override
+    public Room findById(long id) {
+        Session session = null;
+
+        try {
+            session = sessionFactory.openSession();
+            Query<Room> query = session.createQuery("FROM Room WHERE id = :id");
+            query.setParameter("id", id);
+            Room room = query.getSingleResult();
+
+            return room;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
     public boolean delete(long id) {
         Session session = null;
 

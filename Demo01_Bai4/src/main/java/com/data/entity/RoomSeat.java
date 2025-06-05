@@ -22,4 +22,7 @@ public class RoomSeat {
     @ManyToOne
     @JoinColumn(name = "seat_id")
     private Seat seat;
+
+    // true: ghế bình thường, false: ghế hỏng
+    private boolean status;
 }

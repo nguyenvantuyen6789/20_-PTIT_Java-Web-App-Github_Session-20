@@ -40,6 +40,22 @@ public class RoomController {
         return "room_list";
     }
 
+    @GetMapping("room-detail/{id}")
+    public String findById(@PathVariable long id,
+                           Model model) {
+        Room room = roomService.findById(id);
+        RoomDTO roomDTO = new RoomDTO();
+        roomDTO.setId(room.getId());
+        roomDTO.setRoomName(room.getRoomName());
+        roomDTO.setCapacity(room.getCapacity());
+        roomDTO.setScreenType(room.getScreenType());
+        roomDTO.setStatus(room.isStatus());
+
+        model.addAttribute("roomDTO", roomDTO);
+
+        return "room_detail";
+    }
+
     @GetMapping("room-delete/{id}")
     public String delete(@PathVariable long id) {
         roomService.delete(id);

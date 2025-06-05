@@ -7,5 +7,6 @@
 <body>
     <h4>Trang chủ</h4>
     <a href="room-list">List Room</a>
+    <a href="seat-list">List Seat</a>
 </body>
 </html>

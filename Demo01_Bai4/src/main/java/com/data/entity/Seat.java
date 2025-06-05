@@ -19,6 +19,6 @@ public class Seat {
     @Column(unique = true, nullable = false, columnDefinition = "VARCHAR(10)")
     private String seatName;
 
-    @OneToMany(mappedBy = "seat")
+    @OneToMany(mappedBy = "seat", fetch = FetchType.LAZY)
     private List<RoomSeat> roomSeats;
 }

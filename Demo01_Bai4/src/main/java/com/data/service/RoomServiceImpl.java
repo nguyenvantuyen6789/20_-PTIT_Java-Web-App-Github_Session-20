@@ -22,6 +22,11 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public Room findById(long id) {
+        return roomRepo.findById(id);
+    }
+
+    @Override
     public boolean delete(long id) {
         return roomRepo.delete(id);
     }
