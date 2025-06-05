@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h4>List Room</h4>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>ID</th>
+                <th>Room Name</th>
+                <th>Capacity</th>
+                <th>Screen Type</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="room, loop : ${roomDTOS}">
+                <td th:text="${loop.index + 1}"></td>
+                <td th:text="${room.id}"></td>
+                <td th:text="${room.roomName}"></td>
+                <td th:text="${room.capacity}"></td>
+                <td th:text="${room.screenType}"></td>
+
+                <td th:if="${room.status == true}" th:text="${'Đang hoạt động'}"></td>
+                <td th:if="${room.status != true}">Ngừng hoạt động</td>
+
+                <td><a th:href="${'/room-delete/' + room.id}">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
